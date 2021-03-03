@@ -18,8 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/*Route::get('blogs', 'BlogsController@index');
-Route::get('blogs/{id}', 'BlogsController@show');
-Route::post('blogs', 'BlogsController@store');
-Route::put('blogs/{id}', 'BlogsController@update');
-Route::delete('blogs/{id}', 'BlogsController@delete');*/
+Route::middleware('api')->group(function () {
+    Route::get('blogs', 'BlogsController@index');
+    Route::get('blogs/{id}', 'BlogsController@show');
+    Route::post('blogs', 'BlogsController@store');
+    Route::put('blogs/{id}', 'BlogsController@update');
+    Route::delete('blogs/{id}', 'BlogsController@delete');
+});

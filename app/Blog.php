@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static find($id)
  * @method static findOrFail($id)
  */
-class Blogs extends Model
+class Blog extends Model
 {
     /**
      * The attributes that are mass assignable.

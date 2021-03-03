@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Blogs;
+use App\Blog;
 
 class BlogsSeeder extends Seeder
 {
@@ -422,7 +422,7 @@ class BlogsSeeder extends Seeder
             ]
         ];
         foreach ($listBlogs as $blog) {
-            Blogs::create($blog);
+            Blog::create($blog);
         }
     }
 }

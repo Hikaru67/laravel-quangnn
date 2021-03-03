@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('blogs', 'BlogsController@index');
+/*Route::get('blogs', 'BlogsController@index');
 Route::get('blogs/{id}', 'BlogsController@show');
 Route::post('blogs', 'BlogsController@store');
 Route::put('blogs/{id}', 'BlogsController@update');
-Route::delete('blogs/{id}', 'BlogsController@delete');
+Route::delete('blogs/{id}', 'BlogsController@delete');*/
