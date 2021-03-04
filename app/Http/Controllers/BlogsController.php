@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
-use http\Env\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -27,8 +26,6 @@ class BlogsController extends Controller
     {
         return Blog::find($id);
     }
-
-    // Return result of action create a blog
 
     /**
      * Add a blog to db
