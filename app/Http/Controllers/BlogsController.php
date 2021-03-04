@@ -3,32 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use http\Env\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class BlogsController extends Controller
 {
-    // Return all list blog in database
+    /**
+     * Get all blogs in the db
+     * @return Blog[]
+     */
     public function index()
     {
         return Blog::all();
     }
 
-    // Return result of find blog by id
-    public function show($id)
+    /**
+     * Get blog by id
+     * @param string $id
+     * @return Blog|null
+     */
+    public function show(string $id): ?Blog
     {
         return Blog::find($id);
     }
 
     // Return result of action create a blog
-    public function store(Request $request): \Illuminate\Http\JsonResponse
+
+    /**
+     * Add a blog to db
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function store(Request $request): JsonResponse
     {
         $blog = Blog::create($request->all());
 
         return response()->json($blog, 201);
     }
 
-    // Return result of action update a blog
-    public function update(Request $request, $id): \Illuminate\Http\JsonResponse
+    /**
+     * Update blog by id
+     * @param Request $request
+     * @param string $id
+     * @return JsonResponse
+     */
+    public function update(Request $request, string $id): JsonResponse
     {
         $blog = Blog::findOrFail($id);
         $blog->update($request->all());
@@ -36,8 +56,12 @@ class BlogsController extends Controller
         return response()->json($blog, 200);
     }
 
-    // Return result of action delete a blog
-    public function delete($id): \Illuminate\Http\JsonResponse
+    /**
+     * Delete blog by id
+     * @param string $id
+     * @return JsonResponse
+     */
+    public function delete(string $id): JsonResponse
     {
         $blog = Blog::findOrFail($id);
         $blog->delete();
